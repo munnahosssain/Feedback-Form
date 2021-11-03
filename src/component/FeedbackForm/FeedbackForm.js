@@ -5,10 +5,6 @@ import './FeedbackForm.css'
 const FeedbackForm = () => {
     const [modal, setModal] = useState(false);
 
-    const buttonClicked = (() => {
-        console.log("click");
-    })
-
     const feedbackChange = ((e) => {
         e.preventDefault();
         console.log(e.target.value);
@@ -16,9 +12,13 @@ const FeedbackForm = () => {
 
     return (
         <div className="App">
-            <h1>Feedback Form</h1>
-            <div className="feedback">
-                <Button onClick={() => setModal((value) => !value)} variant="outlined">Toggle Feed</Button>
+            {
+                modal && <h1>Feedback Form</h1>
+            }
+            {
+                !modal && <Button onClick={() => setModal((value) => !value)} variant="outlined">Feedback</Button>
+            }
+            <div>
                 {
                     modal && <Box
                         component="form"
@@ -27,7 +27,9 @@ const FeedbackForm = () => {
                         }}
                         noValidate
                         autoComplete="off"
+                        className="feedback"
                     >
+                        <Button onClick={() => setModal((value) => !value)} variant="contained" className="btn-close" >X</Button><br />
                         <TextField label="Name" variant="outlined" name="name" /><br />
                         <TextField label="Email" variant="outlined" name="email" /><br />
                         <TextField onChange={feedbackChange} label="Feedback" variant="outlined" name="feedback" /><br />

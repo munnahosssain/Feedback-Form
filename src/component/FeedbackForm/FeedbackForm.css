@@ -1,10 +1,22 @@
-.form-control{
-    height: 40px;
-    width: 250px;
-    margin-top: 15px;
-    border: 1px solid gray;
+h1 {
+    text-align: center;
 }
 
-.form-control:hover{
-    box-shadow: 5px 5px 15px gray;
+.App {
+    left: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.btn-close {
+    width: 10px !important;
+    margin-left: 332px !important;
+}
+
+.feedback {
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid red;
+    border-radius: 10px;
+    background-color: #f7f2f2;
 }
